@@ -1,4 +1,3 @@
-import itertools
 import random
 import string
 def delete(string):
@@ -12,25 +11,38 @@ def concatine(tup):
     for i in tup:
         temp+=i
     return temp
+def split(a):
+    temp = []
+    for i in a:
+        if i != ' ':
+            temp.append(i)
+    return temp
 
 #Составить из букв введенной строки слова
-a = delete(input("Введите строку: "))
-b = list(itertools.combinations_with_replacement(a,len(a)))
+print("Составить из букв введенной строки слова\n")
+a = input("Введите строку: ")
+a = split(a)
 for i in range(15):
-    print(concatine(b[random.randint(0,len(b))]), end="  ")   
+    temp = ''
+    random.shuffle(a)
+    temp = temp.join(a)
+    print(temp)
 
 #Удалить из строки пробелы и определить, является ли она перевертышем
+print("\nУдалить из строки пробелы и определить, является ли она перевертышем\n")
 c = delete(input("\nВведите строку: "))
 if c.lower() == c[::-1].lower():
     print("Введенная строка является полиндромом")
 
 #Замена подстроки
+print("\n________Замена подстроки________\n")
 d = input("Введите строку: ")
 e = input("Введите подстроку которую хотите заменить: ")
 f = input("Введите замену подстроки: ")
 print(d.lower().replace(e.lower(),f).capitalize())
 
 #Удаление из строки повторяющихся символов
+print("\nУдаление из строки повторяющихся символов\n")
 g = input("Введите стороку: ")
 h = []
 for i in g:
@@ -40,6 +52,7 @@ h = list(set(h))
 print(concatine(h))
 
 #Удаление лишних пробелов
+print("\nУдаление лишних пробелов\n")
 
 l = input("Введите строку: ").strip()
 counter = 0
@@ -55,7 +68,7 @@ for i in l:
 print(o)
 
 #Самая длинная строка в массиве
-
+print("\nСамая длинная строка в массиве\n")
 m = []
 n = int(input("Введите кол-во строк в массиве: "))
 maxx = 0
@@ -69,6 +82,7 @@ for i in range(0,len(m)):
         print(f"Самая длинная строка под {i} индексом")
 
 #Самое длинное слово в строке
+print("\nСамое длинное слово в строке\n")
 maxx = 0
 p = input("Введите строку:").split(" ")
 for i in p:
@@ -81,7 +95,7 @@ while counter <= len(p):
         break
     counter+=1
 
-
+print("\nКоличество строчных и прописных букв в строке\n")
 l_c = string.ascii_lowercase
 u_c = string.ascii_uppercase
 q = input("Введите строку: ")
@@ -96,7 +110,7 @@ for i in q:
         pass
 print(f"Количесво строчных букв в строке равно {count_l} и количество прописных букв равно {count_u}")
 
-#Количество слов в строке
+print("\nКоличество слов в строке\n")
 r = input("Введите строку: ").split(" ")
 count_index = 0
 for i in r:
